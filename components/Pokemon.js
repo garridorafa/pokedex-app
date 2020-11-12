@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 const StyledDiv = styled.div`
   border: solid 2px;
@@ -37,9 +37,9 @@ const StyledTypes = styled.ul`
   }
 `
 
-function Pokemon(){
+function Pokemon(props){
   const [pokemon, setPokemon] = useState(null);
-  const id=1;
+  const id = parseInt(props.pkmID);
   useEffect(async () => {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const data = await res.json();
@@ -62,12 +62,11 @@ function Pokemon(){
             {pokemon.name}
           </StyledName>
           <StyledTypes>
-            <li>
-              {pokemon.types[0].type.name}
-            </li>
-            <li>
-              {pokemon.types[1].type.name}
-            </li>
+            {
+              pokemon.types.map((t) =>
+                <li> {t.type.name} </li>
+              )
+            }
           </StyledTypes>
           
         </StyledDiv>}
