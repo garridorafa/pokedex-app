@@ -5,14 +5,13 @@ const StyledBar = styled.input`
   width: 50px;
 `
 
-function FindBar(){
+function FindBar(props){
   return (
     <div>
       FIND Pokemon by No: 
-      <StyledBar></StyledBar>
+      <StyledBar onChange={(e) => props.onChange(e.target.value)}></StyledBar>
     </div>
   )
 }
-
 
 export default FindBar;

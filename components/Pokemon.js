@@ -45,7 +45,7 @@ function Pokemon(props){
     const data = await res.json();
     console.log(data);
     setPokemon(data);
-  }, []);
+  }, [props.pkmID]);
 
 
   return (
@@ -63,7 +63,7 @@ function Pokemon(props){
           </StyledName>
           <StyledTypes>
             {
-              pokemon.types.map((t) =>
+              pokemon && pokemon.types.map((t) =>
                 <li> {t.type.name} </li>
               )
             }
