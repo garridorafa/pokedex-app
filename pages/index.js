@@ -1,5 +1,10 @@
+import Container from '../components/Container';
+import Pokemon from '../components/Pokemon';
+
 const Index = () => {
-  return <h1> Index </h1>
+  return (
+    <Pokemon />
+  )
 }
 
 export default Index;
